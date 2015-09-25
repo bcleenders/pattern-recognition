@@ -167,11 +167,22 @@ These lengths are reasonable because the chance of getting the exit state for $S
 \section{} % Question 7
 We used 2 multi-variate Gaussian distributions for generating Gaussian vector distributions as output.
 Input :
-g1=GaussD('Mean',[0 1],'Covariance',[2 1;1 4]); - for state 1 g2=GaussD('Mean',[3 9],'Covariance',[1 4;4 1]); - for state 2
+\begin{minted}[mathescape, linenos, numbersep=5pt, frame=lines, framesep=2mm, tabsize=4, numberblanklines=true, breaklines=true]{matlab}
+mc=MarkovChain([0.75;0.25], [0.99 0.01;0.03 0.97]);
+g1=GaussD('Mean',[0 1],'Covariance',[2 1;1 4]); %distr for state 1
+g2=GaussD('Mean',[3 9],'Covariance',[1 4;4 1]); %distr for state 2
+h=HMM(mc, [g1; g2]);
+x=rand(h, 500);
+plot(x)
+xlabel('output value')
+ylabel('iteration')
+\end{minted}
 
 \begin{figure}[H]
-	\caption{Filling a group}
-	\label{fig:question_4_HMM_plot}
+	\caption{Vector output of HMM}
+	\label{fig:question_7_double_values}
 	\centering
-	\includegraphics[width=9cm]{images/question_4_HMM_plot}
+	\includegraphics[width=9cm]{images/question_7_double_values}
 \end{figure}
+
+As seen in the figure , we can observe the 2 outputs as Gaussian vector distributions complying to the mean and the state probability i.e., apporiximately 75\% of the samples are in state 1 with distribution $N(0,1)$ and 25\% of them are in state 2 with distribution $N(3,9)$.
