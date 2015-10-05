@@ -20,7 +20,9 @@ mins = min(trans(trans(:, end) ~= 0, :));
 minX = mins(1);
 minY = mins(2);
 
-maxes = max(trans(trans(:, end) ~= 0, :));
+moved = figure + repmat([minX; minY; 0], 1, length(figure));
+
+maxes = max(moved(moved(:, end) ~= 0, :));
 maxX = maxes(1);
 maxY = maxes(2);
 
@@ -28,7 +30,6 @@ maxY = maxes(2);
 xscale = 1/((maxX - minX) + 0.00001);
 yscale = 1/((maxY - minY) + 0.00001);
 
-moved = figure + repmat([minX; minY; 0], 1, length(figure));
 scaled = moved.*repmat([xscale; yscale; 1], 1, length(moved));
 
 % Clear some stuff from memory
@@ -66,7 +67,7 @@ for i = 1:length(scaled)
        % atan2(1, 0) = 1/2 pi   (up)
        % atan2(0, -1)= pi       (left)
        % atan2(-1, 0)= -1/2 pi  (down)
-       lines(5, j) = atan2(lines(3, j) - lines(1, j) + 0.00001, lines(4, j) - lines(2, j) + 0.00001);
+       lines(5, j) = atan2(lines(4, j) - lines(2, j) + 0.00001, lines(3, j) - lines(1, j) + 0.00001);
        
        
        % Source:
@@ -95,5 +96,5 @@ end
 % maxdistance (detect circles)
 
 lines
-
+bar(transpose(lines))
 
