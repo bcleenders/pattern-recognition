@@ -1,11 +1,8 @@
 % Returns a vector of featurevectors.
 % Each featurevector has:
-% startX
-% startY
-% endX
-% endY
-% direction
-% maxdistance (detect circles)
+% position (X and Y coordinates)
+% number of lines drawn so far
+% direction from last point
 
 function features = FeatureExtractor(maxtime)
 
