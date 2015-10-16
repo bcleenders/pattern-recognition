@@ -1,4 +1,7 @@
-l = FeatureExtractor(10);
+maxtime = 5;
+figure = DrawCharacter(maxtime);
 
-plot(transpose(l))
-l
+features = FeatureExtractor(figure);
+
+plot(transpose(features));
+features

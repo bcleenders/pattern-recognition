@@ -4,9 +4,7 @@
 % number of lines drawn so far
 % direction from last point
 
-function features = FeatureExtractor(maxtime)
-
-figure = DrawCharacter(maxtime);
+function features = FeatureExtractor(figure)
 
 % Count the number of lines
 % Lines are separated by one or more zeroes (third row)
