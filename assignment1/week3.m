@@ -10,4 +10,8 @@ c = [1, 0.1625 0.8266 0.0581];
 % pX(i, t) is P(X(t) = x(t) | S = i)
 pX = h.OutputDistr.prob(x);
 
-bh = mc.backward(pX, c);
+% Output should be:
+%betaHat =
+%    1.0003    1.0393         0
+%    8.4182    9.3536    2.0822
+bh = mc.backward(pX, c)
