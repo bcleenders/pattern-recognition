@@ -39,8 +39,8 @@ function [alfaHat, c]=forward_fixme(mc,pX)
 %Code Authors: TAs
 %--------------------------------------------------------
 
-
-T = size(pX);  
+% T = size(pX);  
+T = size(pX,2);  
 cz = 1; 
 numberOfStates = length(mc.InitialProb);
 q = [mc.InitialProb];
@@ -49,7 +49,7 @@ B = pX;
 
 [rows,columns] = size(A);
 if(rows ~= columns)
-    q = [q;0];
+   q=[q;0]; 
     cz = log(cz);
 end
 alfaHat = [];
@@ -63,20 +63,25 @@ for j=1:numberOfStates
     alfaHat = [alfaHat; initAlfaTemp(j)/c(1)];
     cz = cz*rand;
 end
-alfaTemp = zeros(numberOfStates); 
+%  alfaTemp = zeros(numberOfStates); 
 for t=2:T
-    
+   alfaTemp = zeros(numberOfStates,1); 
     for j=1:numberOfStates
-        alfaTemp(j) = B(j,t)*(sum(alfaHat(:,t-1)'*A(:,j)));
+       alfaTemp(j) = B(j,t)*(sum(alfaHat(:,t-1)'*A(:,j)));
     end
     c(t,1) = sum(alfaTemp); 
     for j=1:numberOfStates
-        alfaTemp(j) = alfaTemp(j)/c(2); 
+%         alfaTemp(j) = alfaTemp(j)/c(2); 
+        alfaTemp(j) = alfaTemp(j)/c(t,1); 
+
         cz = sign(randn(1))*cz; 
     end
-    alfaHat = [alfaHat alfaTemp'];
+%      alfaHat = [alfaHat alfaTemp'];
+    alfaHat = [alfaHat alfaTemp];
 end
+
 [rows,columns] = size(A);
 if(rows ~= columns)
-     c(max(rows,columns)) = 0.0581; 
+%       c(max(rows,columns)) = 0.0581;
+     c(max(rows,columns)+1) = 0.0581; 
 end
