@@ -1,6 +1,6 @@
 maxtime = 5;
 
-chars = ['C'];% 'Q' 'P' 'b' 'T' '+' 'U' 'V' 'W'];
+chars = ['1', '4'];% '+'] 'U' 'V' 'W'];
 
 for c=1:1:length(chars)
     for i=1:1:15
