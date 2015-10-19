@@ -1,0 +1,41 @@
+We have added the following 15 characters to our training dataset: A, B, C, i, O, Q, T, U, V, W, 1, 2, 4, ! and +.
+
+For each character, we made 15 samples so we have a total of 225 samples.
+
+\section{Why these characters?}
+We chose these characters for the following reasons:
+\begin{itemize}
+\item A, B and C simply because they are the first three characters.
+\item T and + because they are specifically mentioned in one of the previous exercises as difficult to distinguish.
+\item C, O and Q because the "roundish" shape looks visually similar, but they have some small differences (not a full circle for the C, and an extra line for the Q).
+\item U, V and W because they are somewhat similar in shape too, especially U and V.
+\item i and ! because the basic shapes are the same (a line and a dot); only the relative position of the dot distinguishes the two.
+\item 1, 2 and 4 for the sake of having some numbers too. Also, the 1 (being a single line) is similar to the ! and i but doesn't have the dot.
+\end{itemize}
+
+\section{Variations in characters}
+For each character, we used the same drawing movements. For example; when drawing a "T", we first draw a line from the left to the right (the top line) and then a line from the centre top to the bottom.
+
+We only varied angles, drawing speed, size and position (offset) of the characters. We think that this should be sufficient for recognizing one persons handwriting.
+
+Most people will draw a C starting at the top, and ending at the bottom. Of course, it would be totally possible to train our HMM on the reverse movement too (it should result in the same figure), but we don't think it's likely anyone draws it that way.
+
+To visualize the differences in drawing one character repeatedly, we include the following three graphs. Each graph shows the direction element 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.95\linewidth]{images/direction_plots_+}
+	\captionof{figure}{Direction vector of fifteen drawings of '+'}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.95\linewidth]{images/direction_plots_T}
+	\captionof{figure}{Direction vector of fifteen drawings of 'T'}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.95\linewidth]{images/direction_plots_C}
+	\captionof{figure}{Direction vector of fifteen drawings of 'C'}
+\end{figure}
