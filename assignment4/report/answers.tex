@@ -1,3 +1,39 @@
+\section{Code verification}
+The verification was done by checking if the output of the function (\texttt{c} and \texttt{alfaHat}) matches the given values of \texttt{c} and \texttt{alfaHat} for the example given in section A.3 of the Exercise Project (page 238). The corrected code passed the test case.
+
+We identified the following errors:
+
+\large{1}\\
+\textbf{Original}: \texttt{T = size(pX)}\\
+\textbf{Corrected}: \texttt{T = size(pX, 2)}\\
+\textbf{Type of flaw}: Logical and Runtime\\
+\textbf{Comments}: T is duration of the observed pattern sequence and hence it is a scalar value and not a vector.
+
+\large{2}\\
+\textbf{Original}: \texttt{alfaTemp = zeros(numberOfStates);}\\
+\textbf{Corrected}: \texttt{alfaTemp = zeros(numberOfStates, 1);}\\
+\textbf{Type of flaw}: Logical\\
+\textbf{Comments}: alfaTemp is a temporary value should get reset after calculating alfaHat for every time step 't'. Also, since it is reset everytime it will be a row vector with number of states as its size. Without this correction, we get incorrect dimensions of alfaHat and hence alfaHat in general becomes incorrect.
+
+\large{3}\\
+\textbf{Original}: \texttt{alfaTemp(j) = alfaTemp(j)/c(2)}\\
+\textbf{Corrected}: \texttt{alfaTemp(j) = alfaTemp(j)/c(t,1);}\\
+\textbf{Type of flaw}: Logical\\
+\textbf{Comments}: Incorrect c and alfaHat values and dimension. alfaTemp has to be normalised with c at that time instance 't'. This is because, alfaHat for a time instance 't' is the normalized state probabilities given the observations at the time instance 't'.
+
+\large{4}\\
+\textbf{Original}: \texttt{alfaHat = [alfaHat alfaTemp']}\\
+\textbf{Corrected}: \texttt{alfaHat = [alfaHat alfaTemp]}\\
+\textbf{Type of flaw}: Runtime\\
+\textbf{Comments}: Error : Dimensions of matrices being concatenated are not consistent.
+
+\large{5}\\
+\textbf{Original}: \texttt{c(max(rows,columns)) = 0.0581]}\\
+\textbf{Corrected}: \texttt{c(max(rows,columns)+1) = 0.0581}\\
+\textbf{Type of flaw}: Logical\\
+\textbf{Comments}: For a finite duration HMM, we need to include the special exit condition $S_{(T+1)}$  and hence the exit probability is is for $c_{(T+1)}$.
+
+\section{Character database}
 We have added the following 15 characters to our training dataset: A, B, C, i, O, Q, T, U, V, W, 1, 2, 4, ! and +.
 
 For each character, we made 15 samples so we have a total of 225 samples.
@@ -13,7 +49,7 @@ We chose these characters for the following reasons:
 \item 1, 2 and 4 for the sake of having some numbers too. Also, the 1 (being a single line) is similar to the ! and i but doesn't have the dot.
 \end{itemize}
 
-\section{Variations in characters}
+\subsection{Variations in characters}
 For each character, we used the same drawing movements. For example; when drawing a "T", we first draw a line from the left to the right (the top line) and then a line from the centre top to the bottom.
 
 We only varied angles, drawing speed, size and position (offset) of the characters. We think that this should be sufficient for recognizing one persons handwriting.
