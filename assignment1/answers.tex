@@ -109,7 +109,7 @@ As shown in figure~\ref{fig:question_4_HMM_plot}, though the output of the HMM i
 	\caption{HMM output plot with $N(0,1)$ and $N(3,2)$}
 	\label{fig:question_4_HMM_plot}
 	\centering
-	\includegraphics[width=9cm]{images/question_4_HMM_plot}
+	\includegraphics[width=14cm]{images/question_4_HMM_plot}
 \end{figure}
 
 We used the following code to generate this:
@@ -142,19 +142,16 @@ Unlike the previous HMM, the mean values for both states are now the same. This 
 
 The probability distribution illustrates this statement: values close to 0 are likely to be produced by state 1, values further away are more likely to be produced by state 2.
 \begin{figure}[H]
-\centering
-\begin{minipage}{.5\textwidth}
 	\centering
-	\includegraphics[width=.9\linewidth]{images/question_5_HMM_plot}
+	\includegraphics[width=.8\linewidth]{images/question_5_HMM_plot}
 	\captionof{figure}{HMM output plot}
 	\label{fig:question_5_HMM_plot}
-\end{minipage}%
-\begin{minipage}{.5\textwidth}
+\end{figure}%
+\begin{figure}[H]
 	\centering
-	\includegraphics[width=.9\linewidth]{images/question_5_probability_distributions}
+	\includegraphics[width=.8\linewidth]{images/question_5_probability_distributions}
 	\captionof{figure}{Probability distributions for both states}
 	\label{fig:question_5_probability_distributions}
-\end{minipage}
 \end{figure}
 
 \section{} % Question 6
@@ -182,7 +179,7 @@ ylabel('iteration')
 	\caption{Vector output of HMM}
 	\label{fig:question_7_double_values}
 	\centering
-	\includegraphics[width=9cm]{images/question_7_double_values}
+	\includegraphics[width=.9\linewidth]{images/question_7_double_values}
 \end{figure}
 
 As seen in the figure , we can observe the 2 outputs as Gaussian vector distributions complying to the mean and the state probability i.e., apporiximately 75\% of the samples are in state 1 with distribution $N(0,1)$ and 25\% of them are in state 2 with distribution $N(3,9)$.
