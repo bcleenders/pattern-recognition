@@ -33,6 +33,12 @@ We identified the following errors:
 \textbf{Type of flaw}: Logical\\
 \textbf{Comments}: For a finite duration HMM, we need to include the special exit condition $S_{(T+1)}$  and hence the exit probability is is for $c_{(T+1)}$.
 
+\large{6}\\
+\textbf{Original}: \texttt{c(max(rows,columns)+1) = 0.0581;}\\
+\textbf{Corrected}: \texttt{c(max(rows,columns)+1) = alfaTemp'*A(:,columns);}\\
+\textbf{Type of flaw}: Logical\\
+\textbf{Comments}: The value is hardcoded (and thus passes the tests) instead of calculated.
+
 \section{Character database}
 We have added the following 15 characters to our training dataset: A, B, C, i, O, Q, T, U, V, W, 1, 2, 4, ! and +.
 
