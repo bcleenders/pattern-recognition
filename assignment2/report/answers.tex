@@ -20,29 +20,47 @@ The information given by this feature could also be derived from a sudden change
 \end{itemize}
  
 Most of the features used are continuous. With the above features, we believe that the HMM should be able to recognize the character patterns quite efficiently.
- 
+
 \subsection{Verification of the Feature Extractor with different sizes}
-In the figures below (\ref{fig:cs1}, \ref{fig:cs2}, \ref{fig:cs2}), 3 plots of the features extracted of the character 'C' of different sizes are shown. We can observe that the feature extractor extracts features with significantly similar patterns, irrespective of the sizes of the character drawn. This is mainly checked by scaling the X-Y coordinates.
+In the figures below, 3 plots of the features extracted of the character 'C' of different sizes are shown. We can observe that the feature extractor extracts features with significantly similar patterns, irrespective of the sizes of the character drawn. This is mainly checked by scaling the X-Y coordinates.
  
 \begin{figure}[H]
 	\centering
-	\begin{minipage}{.33\textwidth}
+	\begin{minipage}{.5\textwidth}
 		\centering
-		\includegraphics[width=.99\linewidth]{images/deepas/c_big}
+		\includegraphics[width=.99\linewidth]{images/cBig}
 		\captionof{figure}{C drawn big}
-		\label{fig:cs1}
 	\end{minipage}%
-	\begin{minipage}{.33\textwidth}
+	\begin{minipage}{.5\textwidth}
 		\centering
-		\includegraphics[width=.99\linewidth]{images/deepas/c_small}
-		\captionof{figure}{C drawn small}
-		\label{fig:cs2}
+		\includegraphics[width=.99\linewidth]{images/cBigPlot}
+		\captionof{figure}{Corresponding plot of feature vectors}
 	\end{minipage}
-	\begin{minipage}{.33\textwidth}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{.5\textwidth}
 		\centering
-		\includegraphics[width=.99\linewidth]{images/deepas/c_verySmall}
+		\includegraphics[width=.99\linewidth]{images/cSmall}
+		\captionof{figure}{C drawn small}
+	\end{minipage}%
+	\begin{minipage}{.5\textwidth}
+		\centering
+		\includegraphics[width=.99\linewidth]{images/cSmallPlot}
+		\captionof{figure}{Corresponding plot of feature vectors}
+	\end{minipage}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{.5\textwidth}
+		\centering
+		\includegraphics[width=.99\linewidth]{images/cVerySmall}
 		\captionof{figure}{C drawn very small}
-		\label{fig:cs3}
+	\end{minipage}%
+	\begin{minipage}{.5\textwidth}
+		\centering
+		\includegraphics[width=.99\linewidth]{images/cVerySmallPlot}
+		\captionof{figure}{Corresponding plot of feature vectors}
 	\end{minipage}
 \end{figure}
 
@@ -50,7 +68,7 @@ Figure~\ref{fig:o} below shows the plot of the features extracted for the charac
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=.5\linewidth]{images/deepas/O}
+	\includegraphics[width=.7\linewidth]{images/deepas/O}
 	\caption{Plot of feature vectors for character 'O'}
 	\label{fig:o}
 \end{figure}
@@ -64,13 +82,13 @@ The difference between these figures is minimal, from which we can conclude that
 
 \begin{figure}[H]
 	\centering
-	\begin{minipage}{.4\textwidth}
+	\begin{minipage}{.49\textwidth}
 		\centering
 		\includegraphics[width=.99\linewidth]{images/deepas/T_random1}
 		\captionof{figure}{First drawing of T}
 		\label{fig:randT1}
 	\end{minipage}
-	\begin{minipage}{.4\textwidth}
+	\begin{minipage}{.49\textwidth}
 		\centering
 		\includegraphics[width=.99\linewidth]{images/deepas/T_random2}
 		\captionof{figure}{Another drawing of T}
@@ -83,13 +101,13 @@ The differences between the character 'plus' and 'T' can be seen in the figures 
 
 \begin{figure}[H]
 	\centering
-	\begin{minipage}{.4\textwidth}
+	\begin{minipage}{.49\textwidth}
 		\centering
 		\includegraphics[width=.99\linewidth]{images/deepas/plus}
 		\captionof{figure}{Features extracted for '+'}
 		\label{fig:plus_vs_T_1}
 	\end{minipage}
-	\begin{minipage}{.4\textwidth}
+	\begin{minipage}{.49\textwidth}
 		\centering
 		\includegraphics[width=.99\linewidth]{images/deepas/T}
 		\captionof{figure}{Features extracted for 'T'}
