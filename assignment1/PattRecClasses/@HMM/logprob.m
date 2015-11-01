@@ -26,15 +26,24 @@
 %Code Authors:
 %----------------------------------------------------
 
+% Given code
 function logP=logprob(hmm,x)
-hmmSize=size(hmm);%size of hmm array
-T=size(x,2);%number of vector samples in observed sequence
-logP=zeros(hmmSize);%space for result
-for i=1:numel(hmm)%for all HMM objects
-    %Note: array elements can always be accessed as hmm(i),
-    %regardless of hmmSize, even with multi-dimensional array.
-    %
-    %logP(i)= result for hmm(i)
-    %continue coding from here, and delete the error message.
-    error('Not yet implemented');
-end;
+    hmmSize=size(hmm);%size of hmm array
+    T=size(x,2);%number of vector samples in observed sequence
+    logP=zeros(hmmSize);%space for result
+    for i=1:numel(hmm)%for all HMM objects
+        %Note: array elements can always be accessed as hmm(i),
+        %regardless of hmmSize, even with multi-dimensional array.
+        %
+        %logP(i)= result for hmm(i)
+        %continue coding from here, and delete the error message.
+
+        %(5.54): ln(P[x1 ... xT | hmm] = sum(t=1, T, ln(c_t))) (infinite duration)
+        %Check (5.55) for finite duration
+        mc = hmm(i).StateGen;
+        [pX, logS] = prob(hmm(i).OutputDistr, x);
+        [~, c] = forward(mc, pX);
+        a = log(c);
+        a(1:T) = a(1:T) + logS;
+        logP(i) = sum(a);
+end
