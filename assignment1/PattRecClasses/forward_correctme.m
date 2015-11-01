@@ -83,5 +83,5 @@ end
 [rows,columns] = size(A);
 if(rows ~= columns)
 %       c(max(rows,columns)) = 0.0581;
-     c(max(rows,columns)+1) = 0.0581; 
+     c(max(rows,columns)+1) = alfaTemp'*A(:,columns); 
 end
