@@ -1,4 +1,5 @@
 char = '+';
+feature = 3;
 
 hold on;
 for i= 1:1:15
